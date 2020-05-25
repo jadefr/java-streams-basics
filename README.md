@@ -26,7 +26,7 @@ Os métodos em negrito fazem parte da API Stream, do Java 8.
 
 ## getFemales()
 
-Vale-se do método **filter()** para retornar apenas objetos da lista cujo atributo gender é FEMALE.
+Vale-se do método **filter()** para retornar apenas objetos da lista cujo atributo _gender_ é FEMALE.
 
 ## getAscendingAges()
 
@@ -42,11 +42,26 @@ Utiliza o método **allMatch()** para comparar se as idades de todos os objetos 
 
 ## anyMatch()
 
-Utiliza o método **anylMatch()** para comparar se algum objeto da lista apresenta o atributo _idade_ maior que 100 (valor escolhido). Retorna um boolean.
+Utiliza o método **anyMatch()** para comparar se algum objeto da lista apresenta o atributo _age_ maior que 100 (valor escolhido). Retorna um boolean.
 
 ## noneMatch()
 
-Utiliza o método **noneMatch()** para comparar se nenhum objeto da lista apresenta o atributo nome igual a "Aliocha" (nome escolhido).
+Utiliza o método **noneMatch()** para comparar se nenhum objeto da lista apresenta o atributo _name_ igual a "Aliocha" (nome escolhido).
 
 
-Utiliza o método **anyMatch()**
+## maxValue()
+
+Utiliza o método **max()** para retornar o objeto da lista que apresenta o atributo _age_ de maior valor.
+
+## minValue()
+
+Utiliza o método **min()** para retornar o objeto da lista que apresenta o atributo _age_ de menor valor.
+
+## groupByGender()
+
+Utiliza o método **groupingBy()** para agrupar os objetos, de acordo com o atributo _gender_, em um Map<Gender, List<Person>>.
+  
+## oldestFemale()
+
+Utiliza os métodos **filter()**, **max()** e **map(Person::getName)** para retornar o nome do objeto de atributo _gender_ FEMALE cujo atributo _age_ é o maior da categoria.
+
