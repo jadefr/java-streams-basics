@@ -11,91 +11,52 @@ public class Main {
     public static void main(String[] args) {
 
         List<Person> people = getPeople();
-//        people.forEach(System.out::println);
 
+        Info info = new Info(people);
 
+        info.getPeople().forEach(System.out::println);
+        System.out.println();
 
-        // Filter
-        List<Person> females = people.stream()
-                .filter(person -> person.getGender().equals(Gender.FEMALE))
-                .collect(Collectors.toList());
-//        females.forEach(System.out::println);
+        System.out.println(":: FEMALES ::");
+        info.getFemales();
+        System.out.println();
 
+        System.out.println(":: ASCENDING ORDER ::");
+        info.getAscendingAges();
+        System.out.println();
 
+        System.out.println(":: DESCENDING ORDER ::");
+        info.getDescendingAges();
+        System.out.println();
 
-        // Sort Ascending
-        List<Person> ascending = people.stream()
-                .sorted(Comparator.comparing(Person::getAge))
-                .collect(Collectors.toList());
-//        ascending.forEach(System.out::println);
+        System.out.println(":: ALL MATCH ::");
+        info.allMatch();
+        System.out.println();
 
+        System.out.println(":: ANY MATCH ::");
+        info.anyMatch();
+        System.out.println();
 
+        System.out.println(":: NONE MATCH ::");
+        info.noneMatch();
+        System.out.println();
 
+        System.out.println(":: MAX VALUE ::");
+        info.maxValue();
+        System.out.println();
 
-        // Sort Descending
-        List<Person> descending = people.stream()
-                .sorted(Comparator.comparing(Person::getAge).reversed())
-                .collect(Collectors.toList());
-//        descending.forEach(System.out::println);
+        System.out.println(":: MIN VALUE ::");
+        info.minValue();
+        System.out.println();
 
+        System.out.println(":: GROUP BY GENDER ::");
+        info.groupByGender();
+        System.out.println();
 
-
-        // All match
-        boolean allMatch = people.stream()
-                .allMatch(person -> person.getAge() > 10);
-//        System.out.println(allMatch);
-
-
-
-        // Any match
-        boolean anyMatch = people.stream()
-                .anyMatch(person -> person.getAge() > 100);
-//        System.out.println(anyMatch);
-
-
-
-        // None match
-        boolean noneMatch = people.stream()
-                .noneMatch(person -> person.getName().equals("Aliocha"));
-//        System.out.println(noneMatch);
-
-
-
-        // Max value
-        people.stream()
-                .max(Comparator.comparing(Person::getAge));
-//                .ifPresent(System.out::println);
-
-
-
-        // Min value
-        people.stream()
-                .min(Comparator.comparing(Person::getAge));
-//                .ifPresent(System.out::println);
-
-
-
-        // Group
-        Map<Gender, List<Person>> groupByGender =  people.stream()
-                .collect(Collectors.groupingBy(Person::getGender));
-
-//        groupByGender.forEach((gender, people1) -> {
-//            System.out.println(gender);
-//            people1.forEach(System.out::println);
-//            System.out.println();
-//        });
-
-
-
-        // get oldest female
-        Optional<String> oldestFemale = people.stream()
-                .filter(person -> person.getGender().equals(Gender.FEMALE))
-                .max(Comparator.comparing(Person::getAge))
-                .map(Person::getName);
-        oldestFemale.ifPresent(System.out::println);
-
+        System.out.println(":: OLDEST FEMALE ::");
+        info.oldestFemale();
+        System.out.println();
     }
-
 
     private static List<Person> getPeople() {
         return List.of(
@@ -111,4 +72,5 @@ public class Main {
                 new Person("Liza Khokhlakov,", 14, Gender.FEMALE)
         );
     }
+
 }
