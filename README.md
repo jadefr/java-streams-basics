@@ -18,50 +18,50 @@ A classe *Info* apresenta diversos métodos sobre uma lista de *Person*, permead
 * Info.java
 * Main.java
 
-## Métodos da classe Info.java
+### Métodos da classe Info.java
 
 Todos os métodos manipulam uma lista de *Person*.
 
 Os métodos em negrito fazem parte da API Stream, do Java 8.
 
-### getFemales()
+#### getFemales()
 
 Vale-se do método **filter()** para retornar apenas objetos da lista cujo atributo _gender_ é FEMALE.
 
-### getAscendingAges()
+#### getAscendingAges()
 
 Utiliza o método **sorted()** para retornar a lista ascendentemente ordenada.
 
-### getDescendingAges()
+#### getDescendingAges()
 
 Aplica o método **reversed()** ao método **sorted()** para retornar a lista descendentemente ordenada.
 
-### allMatch()
+#### allMatch()
 
 Utiliza o método **allMatch()** para comparar se as idades de todos os objetos da lista são maiores que 10 (valor escolhido). Retorna um boolean.
 
-### anyMatch()
+#### anyMatch()
 
 Utiliza o método **anyMatch()** para comparar se algum objeto da lista apresenta o atributo _age_ maior que 100 (valor escolhido). Retorna um boolean.
 
-### noneMatch()
+#### noneMatch()
 
 Utiliza o método **noneMatch()** para comparar se nenhum objeto da lista apresenta o atributo _name_ igual a "Aliocha" (nome escolhido).
 
 
-### maxValue()
+#### maxValue()
 
 Utiliza o método **max()** para retornar o objeto da lista que apresenta o atributo _age_ de maior valor.
 
-### minValue()
+#### minValue()
 
 Utiliza o método **min()** para retornar o objeto da lista que apresenta o atributo _age_ de menor valor.
 
-### groupByGender()
+#### groupByGender()
 
 Utiliza o método **groupingBy()** para agrupar os objetos, de acordo com o atributo _gender_, em um Map<Gender, List<Person>>.
   
-### oldestFemale()
+#### oldestFemale()
 
 Utiliza os métodos **filter()**, **max()** e **map(Person::getName)** para retornar o nome do objeto de atributo _gender_ FEMALE cujo atributo _age_ é o maior da categoria.
 
